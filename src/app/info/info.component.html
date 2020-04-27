@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="sidebar">
+        <div class="menu">
+            <h1>Info page</h1>
+        </div>
+    </div>
+    <div class="main">
+        <div class="main-info">
+            <form [formGroup]="SearchForm" (ngSubmit)="onSubmit(SearchForm.value)">
+                <div class="column">
+                    <div class="field">
+                        <div class="password">
+                            <div class="field-pass">
+                                <input type="text" placeholder="Nickname"
+                                    formControlName="nickname">
+                            </div>
+
+                            <div class="field-pass">
+                                <input type="tel" placeholder="Phone"
+                                    formControlName="phone">
+                            </div>
+
+                            <div class="field-pass">
+                                <input type="email" placeholder="Email"
+                                    formControlName="email">
+                            </div>
+                        </div>
+                        
+                        <div class="field-btn">
+                            <button mat-button (click)="resetForm(); false">Clear</button>
+                            <button mat-button type="submit" [disabled]="(!nickname.valid && !phone.valid) || (!nickname.valid && !email.valid) || (!phone.valid && !email.valid)">Find</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="table" *ngIf="searched && !closed">
+                <tbody class="primary-table">
+                    <tr class="table-names">
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Nickname</td>
+                        <td>Phone</td>
+                        <td>Email</td>
+                        <td>Action</td>
+                    </tr>
+                    <tr class="table-data">
+                        <td (click)="additionalTable()">{{ searchedUser.firstName }}</td>
+                        <td (click)="additionalTable()">{{ searchedUser.lastName }}</td>
+                        <td (click)="additionalTable()">{{ searchedUser.nickname }}</td>
+                        <td (click)="additionalTable()">{{ searchedUser.phone }}</td>
+                        <td (click)="additionalTable()">{{ searchedUser.email }}</td>
+                        <td class="not-clickable">
+                            <button mat-button (click)="updateDialogMain(searchedUser)">Update</button>
+                            <button mat-button class="deleteBtn" (click)="deleteConfirm(searchedUser.uid)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </div>
+            <div class="table" *ngIf="searched && !closed && additional">
+                <tbody class="primary-table">
+                    <tr class="table-names">
+                        <td>Address Type</td>
+                        <td>Country</td>
+                        <td>Postal Code</td>
+                        <td>Address</td>
+                        <td>Action</td>
+                    </tr>
+                    <tr>
+                        <td>{{ searchedUser.addressType }}</td>
+                        <td>{{ searchedUser.country }}</td>
+                        <td>{{ searchedUser.postalCode }}</td>
+                        <td>{{ searchedUser.address }}</td>
+                        <td>
+                            <button mat-button (click)="updateDialogAdditional(searchedUser)">Update</button>
+                            <button mat-button class="deleteBtn" (click)="deleteConfirm(searchedUser.uid)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </div>
+            <div class="table">
+                <tbody class="primary-table">
+                    <tr class="table-names">
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Nickname</td>
+                        <td>Phone</td>
+                        <td>Email</td>
+                    </tr>
+                    <tr *ngFor="let user of allUsersList | async">
+                        <td>{{ user.firstName }}</td>
+                        <td>{{ user.lastName }}</td>
+                        <td>{{ user.nickname }}</td>
+                        <td>{{ user.phone }}</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                </tbody>
+            </div>
+        </div>
+    </div>
+</div>

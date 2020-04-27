@@ -1,0 +1,177 @@
+.container{
+    display: flex;
+    height: 100%;
+
+    margin: 0 auto;
+    flex-direction: row;
+}
+
+.sidebar{
+    flex-shrink: 0;
+    //border: 3px solid black;
+    border-right: 1px solid #27272780;
+    flex-basis: 200px;
+    .menu{
+        margin: 0 auto;
+        h1{
+            //padding: 0 0 0 1em;
+            font-size: 20px;
+            display: flex;
+            flex-shrink: 0;
+            font-weight: lighter;
+            color: grey;
+            justify-content: center;
+        }
+    }
+}
+
+.main{
+    flex-grow: 1;
+    //border: 3px solid black;
+
+    .main-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        //height: 100%;
+
+        form{
+        display: flex;
+        // flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        //height: 100%;
+        .column{
+            color: darken(grey, 20%);
+            width: 80%;
+            .field{
+                margin: 20px auto;
+                display: flex;
+                flex-direction: row;
+                select, input{
+                    margin: 15px 0;
+                    border-width: 0px;
+                    border-bottom: 1px;
+                    border-style: solid;
+                    padding: 10px;
+                    outline: 0;
+                    font-size: 0.95em;
+                    background: inherit;
+                    border-color: #bbb;
+                    font-family: inherit;
+                    color: #555;
+                    &:focus{
+                        border-color: darken(#bbb, 20%);
+                    }
+                }
+
+                .is-invalid{
+                    box-shadow: 0 0 3px 1px red;
+                }
+                .text-danger{
+                    color: red;
+                    margin-bottom: 10px;
+                }
+
+                .password{
+                    
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+
+                    .field-pass{
+                        width: 80%;
+
+                    }
+                    input{
+                        width: inherit;
+                    }
+                }
+
+                .field-btn{
+                    margin: 20px 0;
+                    display: flex;
+                    justify-content: flex-end;
+                    button, input{
+                        margin: 0 10px;
+                        background: #28d;
+                        border-radius: 10px;
+                        border-color: transparent;
+                        color: #fff;
+                        cursor: pointer;
+                        border-width: 1px;
+                        border-style: solid;
+                        outline: 0;
+                        font-family: inherit;
+                        &:hover{
+                            background: darken(#28d,15%);
+                        }
+                        &:disabled{
+                            background: darken(#28d,15%);
+                            cursor: not-allowed;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .table{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 25px 0;
+        .primary-table{
+            //border-radius: 15px;
+            box-shadow: 0px 1px 4px #27272780;
+            background-color: darken(white, 2%);
+    
+            .table-names{
+                //border-radius: 15px;
+                font-weight: bolder ;
+                background-color: white;
+            }
+            .table-data{
+                cursor: pointer;
+            }
+            .not-clickable{
+                cursor: default;
+            }
+            td{
+                padding: 10px 25px;
+                .deleteBtn{
+                    color: white;
+                    background:darken(tomato,5%);
+                    &:hover{
+                        background: darken(tomato,15%);
+                    }
+                }
+            }
+            button{
+                box-shadow: 0px 1px 5px #27272780;
+                margin: 0 5px;
+                background: white;
+                border-radius: 10px;
+                border-color: transparent;
+                color: black;
+                cursor: pointer;
+                border-width: 1px;
+                border-style: solid;
+                outline: 0;
+                font-family: inherit;
+                &:hover{
+                    background: darken(white,15%);
+                }
+            }
+        }
+        h1{
+            font-size: 60px;
+            color: darken(grey, 15%);
+        }
+        
+    }
+    }
+}
+
