@@ -14,7 +14,9 @@
                 <span *ngIf="!auth.userData" routerLink="login">Log in</span>
                 <span *ngIf="auth.userData" routerLink="info">Info DB</span>
                 <span *ngIf="!auth.userData" routerLink="create">Sign up</span>
+                <atoms-button (click)="nothing()" buttonValue = 'Click me' buttonType = 'button' ></atoms-button>
             </div>
+            <!-- <organisms-content inputLabel="Something" inputPlaceholder="Input here..." buttonValue = 'Click me' func = "nothing()"></organisms-content> -->
         </div>
     </div>
 </div>

@@ -54,4 +54,8 @@ export class MainComponent implements OnInit {
       });
     }
   }
+
+  nothing():void{
+    console.log("You did it!");
+  }
 }

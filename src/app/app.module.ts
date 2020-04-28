@@ -44,6 +44,7 @@ import { CountriesState } from "./store/state/countries.state";
 import { LoginUserState } from "./store/state/loginUser.state";
 import { UserState } from "./store/state/user.state";
 
+import { ComponentsModule } from "./components/components.module";
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { UserState } from "./store/state/user.state";
     MatInputModule,
     MatSelectModule,
     MatProgressSpinnerModule,
+    ComponentsModule,
     NgxsModule.forRoot([
       LoginUserState,
       UserState,

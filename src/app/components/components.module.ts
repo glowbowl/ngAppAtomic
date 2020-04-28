@@ -21,4 +21,4 @@ import { Organisms } from './organisms';
     ],
     providers: [],
 })
-export class SharedModule { }
+export class ComponentsModule { }

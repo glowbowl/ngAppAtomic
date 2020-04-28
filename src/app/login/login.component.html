@@ -29,7 +29,8 @@
                         <small *ngIf="password.errors?.minlength">Password must be at least 6 characters</small>
                     </div>
                     <div class="field-btn">
-                        <button type="submit" [disabled]="!LoginForm.valid">Login</button>
+                        <!-- <button type="submit" [disabled]="!LoginForm.valid">Login</button> -->
+                        <atoms-button buttonValue = 'Login' buttonType = 'submit' [disabled]="!LoginForm.valid"></atoms-button>
                         <button type="button" (click)="LoginForm.reset({}); false" >Reset</button>
                     </div>
                 </div>
