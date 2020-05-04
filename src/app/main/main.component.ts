@@ -55,7 +55,7 @@ export class MainComponent implements OnInit {
     }
   }
 
-  nothing():void{
-    console.log("You did it!");
+  nothing(){
+    return console.log("Fuck yeah!");
   }
 }

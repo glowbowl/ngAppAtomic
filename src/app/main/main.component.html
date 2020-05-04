@@ -9,14 +9,14 @@
             <div class="greeting-personalized" *ngIf="auth.userData">
                 <h1>Hello, {{name}}!</h1>
             </div>
-                <h1 *ngIf="!auth.userData">Hello, stranger!</h1>
+            <h1 *ngIf="!auth.userData">Hello, stranger!</h1>
             <div class="nav">
                 <span *ngIf="!auth.userData" routerLink="login">Log in</span>
                 <span *ngIf="auth.userData" routerLink="info">Info DB</span>
                 <span *ngIf="!auth.userData" routerLink="create">Sign up</span>
-                <atoms-button (click)="nothing()" buttonValue = 'Click me' buttonType = 'button' ></atoms-button>
+                <atoms-button buttonValue = 'Click me' buttonType = 'button' (clickOnBtn)="nothing()"></atoms-button>
             </div>
-            <!-- <organisms-content inputLabel="Something" inputPlaceholder="Input here..." buttonValue = 'Click me' func = "nothing()"></organisms-content> -->
+            <organisms-content inputLabel="Something" inputPlaceholder="Input here..." buttonValue = 'Click me' (clickOnBtn)="nothing()"></organisms-content>
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
     selector: 'organisms-content',//<molecules-select class="col-md-2" [selectLabel]= "selectLabel"> </molecules-select>
@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
             </molecules-input>
         
     </div>
-    <atoms-button class="m-5 col-md-10" [buttonValue]="buttonValue" [buttonType]="buttonType" [func]="func"> </atoms-button>
+    <atoms-button class="m-5 col-md-10" (click)="onClick()" [buttonValue]="buttonValue" [buttonType]="buttonType" > </atoms-button>
     `,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -31,6 +31,10 @@ export class OrganismsContentComponent {
     @Input()
     buttonType = '';
 
-    @Input()
-    func = '';
+    @Output() clickOnBtn = new EventEmitter();
+
+    onClick() {
+        this.clickOnBtn.emit();
+    }
+
 }

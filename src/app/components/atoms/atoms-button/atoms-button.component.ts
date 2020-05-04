@@ -1,19 +1,26 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
     selector: 'atoms-button',
     template: `
-    <button class="btn btn-primary" [type]="buttonType" (click)="func">{{buttonValue}}</button>
+    <button class="mat-flat-button" (click)="onClick()" [type]="buttonType">{{buttonValue}}</button>
     `,
+    
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AtomsButtonComponent {
     @Input()
-    buttonValue = '';
+    look: string = '';
 
     @Input()
-    buttonType = '';
+    buttonValue: string = '';
 
     @Input()
-    func = '';
+    buttonType: string = '';
+    
+    @Output() clickOnBtn = new EventEmitter<void>();
+
+    onClick() {
+        this.clickOnBtn.emit();
+    }
 }
